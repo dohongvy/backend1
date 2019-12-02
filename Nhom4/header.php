@@ -4,6 +4,7 @@ require "./config/database.php";
 require "./models/Db.php";
 require "./models/products.php";
 require "./models/manufactures.php";
+require "./models/user.php";
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +24,25 @@ require "./models/manufactures.php";
 </head>
 
 <body>
+
+    <?php 
+    if(isset($_SESSION['session1'])){
+        ?>
+        <p style=" margin-left: 63%;">
+         <?php
+        $user = new User;
+        $getFullName = $user->getFullName($_SESSION['session1']);
+        $fullName = $getFullName[0]["first_name"] ." ". $getFullName[0]["last_name"];
+        if( isset( $_SESSION['session1']))
+        {
+            echo '<img style="height: 46px; width: 50px;" src="public/images/icon_login.jpg" alt="icon_login"> <b>Xin chào:</b> '  . $fullName;
+        }
+        ?>
+        <button class="btn btn-small btn-warning" type="button">
+            <a style = "color: #000;" href="http://localhost:82/LapTrinhWeb1/Nhom4/logout.php">Logout</a>
+        </button>
+        </p>
+    <?php } ?>
     <!--header-->
     <header>
         <!--cart-->
@@ -33,6 +53,7 @@ require "./models/manufactures.php";
         if(!isset($_SESSION['item'])){
             $_SESSION['item'] = 0;
         }
+        echo $_SESSION['item'];
         ?>
         <div class="container">
             <div class="cart">

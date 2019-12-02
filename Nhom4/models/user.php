@@ -41,6 +41,11 @@ class User extends Db{
     {
         $sql = self::$connection->query("INSERT INTO `users`( `username`, `password`, `type`, `last_name`, `first_name`) VALUES ('$username','$password','$type','$last_name','$first_name')");
     }
+    public function getFullName($username){
+        $sql = self::$connection->prepare("SELECT `last_name`,`first_name` FROM `users` WHERE `username` = '$username' ");
+        return $this->select($sql);
+    }
+
 }
 
 

@@ -3,6 +3,7 @@ require "../config/database.php";
 require "../models/Db.php";
 require "../models/products.php";
 require "../models/manufactures.php";
+require "../models/user.php";
 session_start();
 if ($_SESSION['type'] == 1) {
 ?>
@@ -107,26 +108,26 @@ if ($_SESSION['type'] == 1) {
 						<div class="widget-content nopadding">
 
 							<!-- BEGIN USER FORM -->
-							<form action="xl_protype.php" method="post" class="form-horizontal"
+							<form id = "formProtype" action="xl_protype.php" method="post" class="form-horizontal"
 								enctype="multipart/form-data">
 								<div class="control-group">
 									<label class="control-label">Protype name :</label>
 									<div class="controls">
-										<input type="text" class="span11" placeholder="Product name" name="name" /> *
+										<input id ="name" type="text" class="span11" placeholder="Product name" name="name" /> *
 									</div>
 								</div>
 								
 								
 									<div class="control-group">
 										<label class="control-label">Choose an image :</label>
-										<div class="controls">
+										<div  class="controls">
 											<input type="file" name="fileUpload" id="fileUpload">
 										</div>
 									</div>
 									
 
 										<div class="form-actions">
-											<button type="submit" name="add" class="btn btn-success">Add</button>
+											<input id="btnAddProtype" type="button" name="add" class="btn btn-success" value="Add">
 										</div>
 									</div>
 
@@ -156,7 +157,9 @@ if ($_SESSION['type'] == 1) {
 	<script src="public/js/jquery.dataTables.min.js"></script>
 	<script src="public/js/matrix.js"></script>
 	<script src="public/js/matrix.tables.js"></script>
+	<script src="public/js/admin.js"></script>
 </body>
+
 </html>
 <?php }else {
 	echo "Bạn không đủ quyền truy cập vào trang này<br>";

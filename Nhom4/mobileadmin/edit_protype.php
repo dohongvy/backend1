@@ -4,10 +4,9 @@ require "../models/Db.php";
 require "../models/products.php";
 require "../models/protypes.php";
 require "../models/manufactures.php";
+require "../models/user.php";
 session_start();
 if ($_SESSION['type'] == 1) {
-?>
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -111,18 +110,17 @@ if ($_SESSION['type'] == 1) {
 
                             <!-- BEGIN USER FORM -->
                             <?php
-                    $id = $_GET['id'];
-                    echo $id;
-                    $manu = new Protype;
-                    $getManufactureById = $manu->getProtypeByIdRight($id);
-                    foreach($getManufactureById as $key=>$value){
-               		 ?>
-                            <form action="xl_editmanufacture.php?id=<?php echo $id ?>" method="post"
+                            $id = $_GET['id'];
+                            $manu = new Protype;
+                            $getManufactureById = $manu->getProtypeByIdRight($id);
+                            foreach($getManufactureById as $key=>$value){
+                            ?>
+                            <form id = "formProtype" action="xl_editProtype.php?id=<?php echo $id ?>" method="post"
                                 class="form-horizontal" enctype="multipart/form-data">
                                 <div class="control-group">
                                     <label class="control-label">Name :</label>
                                     <div class="controls">
-                                        <input type="text" class="span11" value="<?php echo $value['type_name'] ?>"
+                                        <input id="name" type="text" class="span11" value="<?php echo $value['type_name'] ?>"
                                             name="name" />
                                     </div>
                                 </div>
@@ -131,14 +129,14 @@ if ($_SESSION['type'] == 1) {
                                         <label class="control-label">Choose an image :</label>
                                         <td><img class="img-fluid" src='public/images/<?php echo $value['type_img'] ?>'
                                                 alt=""></td>
-                                        <div class="controls">
+                                        <div id ="file" class="controls">
                                             <input type="file" name="fileToUpload" id="fileToUpload">
                                             <?php $_FILES["fileToUpload"]["name"] = $value['type_img']?>
                                             <img src="../public/images/<?php echo $value['type_img'] ?>" width="100"><br>
                                         </div>
                                     </form>
                                     <div class="form-actions">
-                                        <button type="submit" name="edit" class="btn btn-success">Edit</button>
+                                    <input id="btnAddProtype" type="button" name="add" class="btn btn-success" value="Edit">
                                     </div>
                                 </div>
                                     
@@ -166,6 +164,7 @@ if ($_SESSION['type'] == 1) {
     <script src="public/js/jquery.dataTables.min.js"></script>
     <script src="public/js/matrix.js"></script>
     <script src="public/js/matrix.tables.js"></script>
+    <script src="public/js/admin.js"></script>
 </body>
 
 </html>

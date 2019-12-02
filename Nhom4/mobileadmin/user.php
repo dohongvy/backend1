@@ -101,7 +101,7 @@ if ($_SESSION['type'] == 1) {
 			<div class="row-fluid">
 				<div class="span12">
 					<div class="widget-box">
-						<div class="widget-title"> <span class="icon"><a href="add_user.php"><i
+						<div class="widget-title"> <span class="icon"><a href="form_manufacture.php"><i
 										class="icon-plus"></i></a></span>
 							<h5>Products</h5>
 						</div>
@@ -111,10 +111,9 @@ if ($_SESSION['type'] == 1) {
 									<tr>
 										<th>ID</th>
 										<th>Username</th>
-										<th>password</th>
 										<th>Name</th>
 										<th>Type</th>
-										
+										<th>Action</th>
 									</tr>
 								</thead>
 								<?php
@@ -126,14 +125,13 @@ if ($_SESSION['type'] == 1) {
 									<tr class="">
 										<td><?php echo $value['id'] ?></td>
 										<td><?php echo $value['username'] ?></td>
-										<td><?php echo $value['password'] ?></td>
 										<td><?php echo $value['first_name'] ." ". $value['last_name']?></td>
 										<td><?php echo $value['type'] ?></td>
 
 										<td>
-											<a href="edit_user.php?id=<?php echo $value['id'] ?>"
+											<a href="edit_manu.php?id=<?php echo $value['manu_ID'] ?>"
 												class="btn btn-success btn-mini">Edit</a>
-											<a href="delete_user.php?id=<?php echo $value['id'] ?>"
+											<a href="delete_manu.php?id=<?php echo $value['manu_ID'] ?>"
 												class="btn btn-danger btn-mini">Delete</a>
 										</td>
 									</tr>

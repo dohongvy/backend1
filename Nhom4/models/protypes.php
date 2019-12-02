@@ -21,6 +21,6 @@ class Protype extends Db{
     public function edit_protype($name, $image, $id)
     {
         $sql = self::$connection->query("UPDATE `protypes` SET `type_name`='$name',`type_img`='$image' 
-        WHERE `type_ID` '$id'");
+        WHERE `type_ID` = '$id'");
     }
 }

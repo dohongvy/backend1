@@ -14,7 +14,4 @@
         <p>&copy; 2016 FIT TDC</p>
     </div></footer>
 </body>
-<script>
-localStorage.setItem ('name', 'Bepatient');
-</script>
 </html>

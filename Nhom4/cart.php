@@ -95,18 +95,19 @@ require "./models/products.php";
     <a href="index.php">Quay về trang chủ</a>
     <?php
     }
+    
+    $_SESSION['tien'] = $tongTien;
+    $_SESSION['item'] = $item;
+if(!isset($_SESSION['cart'])){
+    ?>
+    <a href="index.php">Giỏ hàng rỗng, quay về trang chủ để tiếp tục mua sắm.</a>
+    <?php
+}else{
     ?>
     <h2>Tổng tiền: <span id="totalPrice"><?php echo $tongTien ?></span></h2>
     <form name="input" action="xl.php?key=<?php echo $key ?>&n=<?php echo $n ?>" method="post">
                         <button type="submit" name="mua" >Mua</button>
                     </form>
-    <?php
-    $_SESSION['tien'] = $tongTien;
-    $_SESSION['item'] = $item;
-if(!isset($_SESSION['cart'])){
-    echo "Giỏ hàng rỗng, về trang chủ mua đi em ơi!!!";
-    ?>
-    <a href="index.php">Quay về trang chủ</a>
     <?php
 }
  
