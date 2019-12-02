@@ -13,72 +13,48 @@
            
         ?>
 <!--content-->
-    <div class="content">
-        <h1>New Collections</h1>
-        <div class="container">
+<div class="content">
+    <h1>New Collections</h1>
+    <div class="container">
 
-            <!--line 2 -->
-            <div class="row">
-                <?php
-                //unset($_SESSION['cart']);
-                    $products = new Products;
-                    $getAllProducts = $products->getAllProducts();
-
-                    //Phan Trang
-                    if(isset($_GET['page']))
-                    {
-                        $page = $_GET['page'];
-                    }
-                    else
-                    {
-                        $page = 1;
-                    }
-                    
-                    $per_page = 8;//số sản phẩm hiển thị trong 1 trang
-                    $total_Row = count($getAllProducts);//Tổng số sản phẩm
-                    $base_url = $_SERVER['PHP_SELF']."?";
-                    $listProduct = $products->listProduct($page,$per_page);
-                    $phanTrang = $products->phanTrang($base_url,$total_Row,$page,$per_page);
-                    //var_dump($getAllProducts);
-                    
-                    if(isset($_SESSION['success'])){
-                        //echo $_SESSION['success'];
+        <!--line 2 -->
+        <div class="row">
+            <?php
+                            $products = new Products;
+                            $getAllProducts = $products->getAllProducts();
+                            //var_dump($getAllProducts);
+                            foreach($getAllProducts as $key=>$value){
+                                
                         ?>
-                        <script>
-                            //alert('Thêm vào giỏ hàng thành công!');
-                        </script>
-                        <?php
-                    }
-               
-                    foreach($listProduct as $key=>$value){
-                ?>
-                <div class="col-md-3">
-                    <div class="item">
-                        <div class="product"><img class="img-fluid" src='public/images/<?php echo $value['image'] ?>' alt=""></div>
-                        <p><strong><a href='detail.php?id=<?php echo $value['ID'] ?>'><?php echo $value['name'] ?></a></strong> <span class="star"><i class="fas fa-star"></i><i
-                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                    class="fas fa-star"></i></span><br><span class="comment"><?php echo substr($value['description'],0,50) ?><a href='detail.php?id=<?php echo $key ?>'>[...]</a></span>
-                        </p>
-                        <div class="row cost">
-                            <div class="col-md-2">
-                                <p><strong><?php echo $value['price'] ?></strong></p>
-                            </div>
-                            <div class="col-md-10">
-                                <a class= "cart1" href="cart.php?id=<?php echo $value['ID'] ?>">ADD TO CART</a>
-                            </div>
+
+            <div class="col-md-3">
+                <div class="item">
+                    <div class="product"><img class="img-fluid" src='public/images/<?php echo $value['image'] ?>'
+                            alt=""></div>
+                    <p><strong><a
+                                href='detail.php?id=<?php echo $value['ID'] ?>'><?php echo $value['name'] ?></a></strong>
+                        <span class="star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i></span><br><span
+                            class="comment"><?php echo substr($value['description'],0,50) ?><a
+                                href='detail.php?id=<?php echo $key ?>'>[...]</a></span>
+                    </p>
+                    <div class="row cost">
+                        <div class="col-md-2">
+                            <p><strong><?php echo $value['price'] ?></strong></p>
+                        </div>
+                        <div class="col-md-10">
+                            <a class="cart1" href="cart.php?id=<?php echo $value['ID'] ?>">ADD TO CART</a>
                         </div>
                     </div>
                 </div>
-                <?php } ?>
             </div>
-            <!--end line 2 -->
+            <?php } ?>
         </div>
+        <!--end line 2 -->
     </div>
-    <div class="container"> 
-    <?php
-    echo $phanTrang;
-    ?>
-    </div>
+</div>
+<!--end content-->
 <?php
         require "footer.php";
 

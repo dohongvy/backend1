@@ -1,5 +1,7 @@
 <?php
-     if( $_SESSION['type'] == 1){
+     require "header.php";
+    
+        if( $_SESSION['type'] == 1){
             header("Location: http://localhost:82/LapTrinhWeb1/Nhom4/mobileadmin/");
         }else{
             if( isset( $_SESSION['session1'] ) )
@@ -58,9 +60,17 @@ require "header.php";
 </div>
 <!--end content-->
 <?php
-    require "footer.php";
-    }
-}
-            
+        require "footer.php";
+
+            }
+            else{
+                    ?>
+<script language="javascript">
+    alert("Bạn chưa đăng nhập");
+</script>
+<?php
+                    header("Location: http://localhost:82/LapTrinhWeb1/Nhom4/login.php");
+                }
+                } 
             
             
