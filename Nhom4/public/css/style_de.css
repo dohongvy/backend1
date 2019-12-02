@@ -1,0 +1,57 @@
+.sanpham {
+    height: 200px;
+    width: 80%;
+}
+
+img {
+    margin-right: 50px;
+    float: left;
+    padding-top: 50px !important;
+}
+
+.gia {
+    color: rgb(108, 143, 99);
+    font-size: 15pt;
+    font-weight: bold;
+    font-style: italic;
+}
+
+p {
+    font-style: italic;
+}
+
+h1 {
+    color: rgb(71, 173, 211);
+    padding-top: 40px !important;
+}
+
+h1>a:link {
+    text-decoration: none;
+    color: rgb(71, 173, 211);
+}
+
+p>a:link {
+    text-decoration: none;
+    color: black;
+}
+
+table {
+    margin: 0 auto;
+    width: 800px
+}
+
+.addcart {
+    text-align: end;
+    border-bottom: 1px silver solid;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-weight: 500;
+    color: brown;
+    border: 1px brown solid;
+    padding: 5px 50px;
+    text-decoration: none;
+}
+
+.addcart:hover {
+    color: rgb(180, 16, 16);
+}

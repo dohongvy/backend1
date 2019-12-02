@@ -1,0 +1,243 @@
+.banner {
+    background: url(../images/banner.jpg);
+    background-size: cover;
+    padding-top: 30px;
+    padding-bottom: 120px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+li {
+    list-style: none;
+}
+
+.banner h1 {
+    color: white;
+    font-size: 20pt;
+    padding-bottom: 30px;
+}
+
+.button1 {
+    background: #fff;
+    border-left: 0;
+    border-radius: 0 25px 25px 0;
+    border: 1px solid rgba(255, 115, 0, 0.87);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    color: #93a2b2;
+    margin-bottom: 0 !important;
+}
+
+.input-group {
+    margin-left: 70%;
+    margin-top: 10px;
+    width: 20% !important;
+    border-collapse: separate;
+    display: table;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.input-group button {
+    border-left: 0;
+    border-radius: 0 25px 25px 0;
+    border: 1px solid rgba(255, 115, 0, 0.87);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    color: #93a2b2;
+    margin-bottom: 0 !important;
+}
+
+.input-group .form-control {
+    border-radius: 25px 0 0 25px;
+    border: 1px solid rgba(255, 115, 0, 0.87);
+    box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.075);
+    padding-left: 20px;
+}
+
+.content h1 {
+    font-size: 17pt;
+}
+
+.banner a {
+    color: white;
+    background: rgba(255, 115, 0, 0.87);
+    border-radius: 25px;
+    padding: 15px 40px;
+    text-decoration: none !important;
+}
+
+.navbar {
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+.navbar-light .navbar-nav .active>.nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show>.nav-link {
+    color: orange;
+    border-radius: 20px;
+    border: 2px orange solid !important;
+    margin-left: 32px;
+    padding-left: 13px;
+    width: 80px;
+}
+
+#a1,
+#a2,
+#a3,
+#a4 {
+    font-weight: 500 !important;
+    padding-left: 30px;
+}
+
+.cart {
+    text-align: end;
+    border-bottom: 1px silver solid;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-weight: 500;
+}
+
+.logo {
+    max-width: 50%;
+}
+
+.product {
+    text-align: center;
+}
+
+.product img {
+    height: 230px !important;
+}
+
+.content h1 {
+    text-align: center;
+}
+
+.star {
+    color: rgb(255, 238, 0);
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.content .comment {
+    color: rgb(146, 144, 144);
+    font-size: 10pt;
+}
+
+.content .cart1 {
+    color: brown;
+    border: 1px brown solid;
+    padding: 5px 50px;
+    text-decoration: none;
+    margin-left: 30%;
+}
+
+.cost {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.content {
+    background: rgb(230, 223, 223);
+    padding-bottom: 80px;
+}
+
+.item {
+    background: white;
+    border: 10px white solid;
+    margin-top: 20px;
+    height: 500px;
+}
+
+.content h1 {
+    padding-top: 50px;
+}
+
+.f1 {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.f1 img {
+    padding-bottom: 40px;
+}
+
+form {
+    text-align: center;
+}
+
+form #email {
+    width: 80%;
+    font-size: 12px;
+    padding: 5px 20px;
+    color: rgb(139, 135, 135);
+    border-bottom: 2px chartreuse solid;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+form .icon {
+    color: orange;
+    position: absolute;
+    padding-top: 5px;
+}
+
+form #join {
+    margin-top: 10px;
+    background: rgb(248, 94, 4);
+    border-color: rgb(248, 94, 4);
+    border-style: solid;
+    color: white;
+    padding: 5px 40px;
+}
+
+.f2 {
+    background: rgb(43, 42, 42);
+    color: rgb(139, 135, 135);
+    padding-top: 30px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.navbar-toggler {
+    border: 2px orange solid !important;
+}
+
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .banner h1 {
+        color: white;
+        font-size: 60pt;
+        padding-bottom: 30px;
+    }
+    .banner {
+        padding-top: 120px;
+    }
+    .content h1 {
+        font-size: 40px;
+    }
+    .content .cart1 {
+        padding: 5px 15px;
+    }
+    .content {
+        text-align: unset;
+    }
+    form #email {
+        width: 50%;
+        font-size: 14pt;
+        margin-right: 40px;
+    }
+    form .icon {
+        padding-top: 15px;
+    }
+    .navbar-light .navbar-nav .active>.nav-link,
+    .navbar-light .navbar-nav .nav-link.active,
+    .navbar-light .navbar-nav .nav-link.show,
+    .navbar-light .navbar-nav .show>.nav-link {
+        padding-left: 15px;
+    }
+}
