@@ -41,7 +41,7 @@ $url_host = 'http://'.$_SERVER['HTTP_HOST'];
                 if($value['type'] == 1){
                     header("Location:$url_path/mobileadmin/");
                 }else{
-                    header("Location: $url_path/home.php");
+                    header("Location: $url_path/index.php");
                 } 
         }
          }

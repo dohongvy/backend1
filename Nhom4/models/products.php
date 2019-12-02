@@ -56,8 +56,14 @@ class Products extends Db{
         $sql = self::$connection->query("DELETE FROM `products` WHERE `ID` = '$id'");
     }
     public function editProduct($name, $price, $image, $description, $manu_ID, $type_ID, $id)
-    {
+    {  
+         if ($image = 0) {
+             $sql = self::$connection->query("UPDATE `products` SET `name` = '$name', `price` = '$price', 
+        `description` = '$description', `manu_ID` = '$manu_ID', `type_ID` = '$type_ID' WHERE `ID` = '$id'");
+         }else{
         $sql = self::$connection->query("UPDATE `products` SET `name` = '$name', `price` = '$price', `image` = '$image',
         `description` = '$description', `manu_ID` = '$manu_ID', `type_ID` = '$type_ID' WHERE `ID` = '$id'");
+         }
+        
     }
 }

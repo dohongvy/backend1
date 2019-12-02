@@ -3,11 +3,9 @@ require "../config/database.php";
 require "../models/Db.php";
 require "../models/products.php";
 require "../models/manufactures.php";
-require "../models/user.php";
 session_start();
 if ($_SESSION['type'] == 1) {
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 

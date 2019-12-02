@@ -138,8 +138,6 @@ if ($_SESSION['type'] == 1) {
 								<?php
 							$products = new Products;
 							$getAllProducts = $products->getAllProducts();
-							// var_dump($getAllProducts[0] ["description"]);
-							// substr($value['description'],0,50)
 							foreach($getAllProducts as $key=>$value){
 							?>
 								<tbody>
@@ -149,7 +147,7 @@ if ($_SESSION['type'] == 1) {
 										<td><?php echo $value['name'] ?></td>
 										<td><?php echo $value['type_name'] ?></td>
 										<td><?php echo $value['manu_name'] ?></td>
-										<td style="width: 40%;"><?php echo $value['description'] ?></td>
+										<td><?php echo substr($value['description'],0,50) ?></td>
 										<td><?php echo $value['price'] ?></td>
 										<td>
 											<a href="edit_product.php?id=<?php echo $value['ID'] ?>"

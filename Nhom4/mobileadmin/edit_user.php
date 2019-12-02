@@ -4,10 +4,10 @@ require "../models/Db.php";
 require "../models/products.php";
 require "../models/protypes.php";
 require "../models/manufactures.php";
+require "../models/user.php";
 session_start();
 if ($_SESSION['type'] == 1) {
 ?>
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -97,7 +97,7 @@ if ($_SESSION['type'] == 1) {
         <div id="content-header">
             <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom current"><i class="icon-home"></i>
                     Home</a></div>
-            <h1>Edit Product</h1>
+            <h1>Edit User</h1>
         </div>
         <div class="container-fluid">
             <hr>
@@ -105,44 +105,60 @@ if ($_SESSION['type'] == 1) {
                 <div class="span12">
                     <div class="widget-box">
                         <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
-                            <h5>Product Detail</h5>
+                            <h5>User Detail</h5>
                         </div>
                         <div class="widget-content nopadding">
 
                             <!-- BEGIN USER FORM -->
                             <?php
                     $id = $_GET['id'];
-                    echo $id;
-                    $manu = new Protype;
-                    $getManufactureById = $manu->getProtypeByIdRight($id);
-                    foreach($getManufactureById as $key=>$value){
-               		 ?>
-                            <form action="xl_editmanufacture.php?id=<?php echo $id ?>" method="post"
-                                class="form-horizontal" enctype="multipart/form-data">
+                    $user = new User;
+                    $getUserById = $user->getUserById($id);
+                    //var_dump($getUserById);
+                    foreach($getUserById as $key=>$value){
+                     ?>
+                            <form action="xl_editUser.php?id=<?php echo $id ?>" method="post" class="form-horizontal"
+                                enctype="multipart/form-data">
                                 <div class="control-group">
-                                    <label class="control-label">Name :</label>
+                                    <label class="control-label">username :</label>
                                     <div class="controls">
-                                        <input type="text" class="span11" value="<?php echo $value['type_name'] ?>"
-                                            name="name" />
+                                        <input type="text" class="span11" value="<?php echo $value['username'] ?>"
+                                            name="username" />
+                                    </div>
+                                </div>
+                                 <div class="control-group">
+                                    <label class="control-label">pasword :</label>
+                                    <div class="controls">
+                                        <input type="text" class="span11" value="<?php echo $value['password'] ?>"
+                                            name="password" />
                                     </div>
                                 </div>
                                 <div class="control-group">
-                                    <form id="Form_upload" method="post" enctype="multipart/form-data">
-                                        <label class="control-label">Choose an image :</label>
-                                        <td><img class="img-fluid" src='public/images/<?php echo $value['type_img'] ?>'
-                                                alt=""></td>
-                                        <div class="controls">
-                                            <input type="file" name="fileToUpload" id="fileToUpload">
-                                            <?php $_FILES["fileToUpload"]["name"] = $value['type_img']?>
-                                            <img src="../public/images/<?php echo $value['type_img'] ?>" width="100"><br>
-                                        </div>
-                                    </form>
-                                    <div class="form-actions">
-                                        <button type="submit" name="edit" class="btn btn-success">Edit</button>
+                                    <label class="control-label">type :</label>
+                                    <div class="controls">
+                                        <input type="text" class="span11" value="<?php echo $value['type'] ?>"
+                                            name="type" />
                                     </div>
                                 </div>
-                                    
-                                <?php } ?>
+                                <div class="control-group">
+                                    <label class="control-label">last_name :</label>
+                                    <div class="controls">
+                                        <input type="text" class="span11" value="<?php echo $value['last_name'] ?>"
+                                            name="last_name" />
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">first_name :</label>
+                                    <div class="controls">
+                                        <input type="text" class="span11" value="<?php echo $value['first_name'] ?>"
+                                            name="first_name" />
+                                    </div>
+                                </div>
+                                        <div class="form-actions">
+                                            <button type="submit" name="edit" class="btn btn-success">Edit</button>
+                                        </div>
+                                    </div>
+                                    <?php } ?>
                             </form>
                         </div>
                     </div>

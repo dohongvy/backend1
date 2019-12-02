@@ -2,7 +2,6 @@
 require "../config/database.php";
 require "../models/Db.php";
 require "../models/manufactures.php";
-require "../models/user.php";
 session_start();
 if ($_SESSION['type'] == 1) {
 $url_host = 'http://'.$_SERVER['HTTP_HOST'];
@@ -16,24 +15,22 @@ $url_path = str_replace('\\', '/', $url_path);
 $manu = new Manufacture;
 $id = $_GET['id'];
 
-$img_n = $manu->getManufactureByIdRight($id)[0]["manu_img"];
 
 $image = $_FILES["fileToUpload"]["name"];
 $target_dir = "../public/images/";//muốn lưu vào thư mục nào thì hãy thay tên ở đây
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 
+if(isset($_POST['edit'])) {
+    
+    if(isset($_POST['name'])){
+        move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
+        $manu->edit_manu($_POST['name'], $image, $id);
+        header("Location: $url_path/manufactures.php");
+    }
+}
 
-if($image == ''){
-    $manu->edit_manu($_POST['name'], $img_n, $id);
-}
-else{
-    move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
-    $manu->edit_manu($_POST['name'], $image, $id);
-}
-header("Location: $url_path/manufactures.php");
-}else {
+ }else {
 	echo "Bạn không đủ quyền truy cập vào trang này<br>";
 	echo "<a href='http://localhost:82/LapTrinhWeb1/Nhom4'> Click để về lại trang chủ</a>";
 	exit();
 }
-   

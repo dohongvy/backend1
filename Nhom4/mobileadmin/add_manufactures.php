@@ -3,13 +3,11 @@ require "../config/database.php";
 require "../models/Db.php";
 require "../models/products.php";
 require "../models/manufactures.php";
-require "../models/user.php";
 session_start();
 if ($_SESSION['type'] == 1) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<title>Mobile Admin</title>
 	<meta charset="UTF-8" />
@@ -108,26 +106,26 @@ if ($_SESSION['type'] == 1) {
 						<div class="widget-content nopadding">
 
 							<!-- BEGIN USER FORM -->
-							<form id = "formManufacture" action="xl_manu.php" method="post" class="form-horizontal"
+							<form action="xl_manu.php" method="post" class="form-horizontal"
 								enctype="multipart/form-data">
 								<div class="control-group">
 									<label class="control-label">Manufacture name :</label>
 									<div class="controls">
-										<input id="name" type="text" class="span11" placeholder="Product name" name="name" /> *
+										<input type="text" class="span11" placeholder="Product name" name="name" /> *
 									</div>
 								</div>
 								
 								
 									<div class="control-group">
 										<label class="control-label">Choose an image :</label>
-										<div id ="file" class="controls">
+										<div class="controls">
 											<input type="file" name="fileUpload" id="fileUpload">
 										</div>
 									</div>
 									
 
 										<div class="form-actions">
-										<input id="btnAddManufacture" type="button" name="add" value="Add" class="btn btn-success">
+											<button type="submit" name="add" class="btn btn-success">Add</button>
 										</div>
 									</div>
 
@@ -157,7 +155,6 @@ if ($_SESSION['type'] == 1) {
 	<script src="public/js/jquery.dataTables.min.js"></script>
 	<script src="public/js/matrix.js"></script>
 	<script src="public/js/matrix.tables.js"></script>
-	<script src="public/js/admin.js"></script>
 </body>
 
 </html>

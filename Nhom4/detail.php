@@ -51,7 +51,6 @@ if( isset( $_SESSION['session1'] ) )
     </div>
 </div>
 <!--end content-->
-<div class="container">
 <h2>Bình luận</h2>
 <form action="comment.php?id=<?php echo $id ?>" method="post">
 <div>
@@ -66,23 +65,19 @@ if( isset( $_SESSION['session1'] ) )
 <?php
 $comment = new Comments();
 $getCommentById = $comment->getCommentById($id);
-if(count($getProductById) > 0){
-
-
+//var_dump($getProductById);
 ?>
-<h3>Nội dung bình luận</h3>
 <table style="width:100%">
-
+    <tr>
+        <th>Username</th>
+        <th>Content</th>
+    </tr>
 <?php
 foreach($getCommentById as $key=>$value){
     ?>
     
-  <tr style="margin-top: 40px">
-    <td style="width: 300px; padding-left: 30px;" > 
-        <img style="width: 100px; margin-left: -30px;" src="./public/images/nam.jpg"> <br>
-        <?php echo $value['username']?>
-    </td>
-
+  <tr>
+    <td><?php echo $value['username']?></td>
     <td><?php echo $value['content']?></td> 
   </tr>
  
@@ -91,9 +86,7 @@ foreach($getCommentById as $key=>$value){
 }
 ?>
 </table>
-</div>
 <?php
-}
 require "footer.php";
 ?>
     <?php

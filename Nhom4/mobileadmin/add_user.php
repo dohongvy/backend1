@@ -6,6 +6,7 @@ require "../models/manufactures.php";
 session_start();
 if ($_SESSION['type'] == 1) {
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -107,41 +108,57 @@ if ($_SESSION['type'] == 1) {
 						<div class="widget-content nopadding">
 
 							<!-- BEGIN USER FORM -->
-							<form action="#" method="post" class="form-horizontal" enctype="multipart/form-data">
-								<div class="control-group">
-									<label class="control-label">Manufacture Name :</label>
-									<div class="controls">
-										<input type="text" class="span11" placeholder="Manufacture name"
-											name="manu_name" /> *
+							<form action="addUser.php" method="post" class="form-horizontal"
+								enctype="multipart/form-data">
+									<div class="control-group">
+										<div class="control-group">
+											<label class="control-label">username :</label>
+											<div class="controls">
+												<input type="text" class="span11" placeholder="username" name="username" /> *
+											</div>
+
+											<div class="control-group">
+											<label class="control-label">password :</label>
+											<div class="controls">
+												<input type="text" class="span11" placeholder="password" name="password" /> *
+											</div>
+											<div class="control-group">
+											<label class="control-label">type :</label>
+											<div class="controls">
+												<input type="text" class="span11" placeholder="type" name="type" /> *
+											</div>
+											<div class="control-group">
+											<label class="control-label">last_name :</label>
+											<div class="controls">
+												<input type="text" class="span11" placeholder="last_name" name="last_name" /> *
+											</div>
+											<div class="control-group">
+											<label class="control-label">first_name :</label>
+											<div class="controls">
+												<input type="text" class="span11" placeholder="first_name" name="first_name" /> *
+											</div>
+										</div>
+
+										</div>
+
+										<div class="form-actions">
+											<button type="submit" name="add" class="btn btn-success">Add</button>
+										</div>
 									</div>
-								</div>
+
+							</form>
+							<!-- END USER FORM -->
 
 
-								<div class="control-group">
-									<label class="control-label">Choose an image :</label>
-									<div class="controls">
-										<input type="file" name="fileUpload" id="fileUpload">
-									</div>
-								</div>
-
-
-								<div class="form-actions">
-									<button type="submit" class="btn btn-success">Add</button>
-								</div>
 						</div>
-
-						</form>
-						<!-- END USER FORM -->
-
-
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	</div>
 
 	<!-- END CONTENT -->
+
 	<!--Footer-part-->
 	<div class="row-fluid">
 		<div id="footer" class="span12"> 2017 &copy; TDC - Lập trình web 1</div>

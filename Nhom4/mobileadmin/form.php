@@ -3,8 +3,6 @@ require "../config/database.php";
 require "../models/Db.php";
 require "../models/products.php";
 require "../models/manufactures.php";
-require "../models/protypes.php";
-require "../models/user.php";
 session_start();
 if ($_SESSION['type'] == 1) {
 ?>
@@ -109,63 +107,60 @@ if ($_SESSION['type'] == 1) {
 						<div class="widget-content nopadding">
 
 							<!-- BEGIN USER FORM -->
-							<form id = "formProduct" action="addProduct.php" method="post" class="form-horizontal"
+							<form action="addProduct.php" method="post" class="form-horizontal"
 								enctype="multipart/form-data">
 								<div class="control-group">
 									<label class="control-label">Name :</label>
 									<div class="controls">
-										<input id = "name" type="text" class="span11" placeholder="Product name" name="name" /> *
+										<input type="text" class="span11" placeholder="Product name" name="name" /> *
 									</div>
 								</div>
-								<?php 
-								$protype = new Protype;
-								$getAllProtype = $protype->getProtype();
-								//var_dump($getAllProtype);
-								?>
 								<div class="control-group">
 									<label class="control-label">Choose a product type :</label>
 									<div class="controls">
 										<select name="type_id">
-										<?php foreach($getAllProtype as $key => $value){?>
-											<option value= "<?php echo $value['type_ID'] ?>"> <?php echo $value['type_name'] ?> </option>
-										<?php } ?>
+											<option value="4">Speaker</option>
+											<option value="3">Laptop</option>
+											<option value="2">Tablet</option>
+											<option value="1">Cellphone</option>
+
 										</select> *
 									</div>
 								</div>
-								<?php $manufactures = new manufacture;
-								$getAllmanufactures = $manufactures->getAllManufacture_ManuName();
-								?>
 								<div class="control-group">
 									<label class="control-label">Choose a manufacture :</label>
 									<div class="controls">
 										<select name="manu_id">
-										<?php foreach($getAllmanufactures as $key => $value){?>
-											<option value="<?php echo $value['manu_ID'] ?>"> <?php echo $value['manu_name'] ?> </option>
-										<?php } ?>
+											<option value="5">Oppo</option>
+											<option value="4">SamSung</option>
+											<option value="3">Sony</option>
+											<option value="2">Microsoft</option>
+											<option value="1">Apple</option>
+
 										</select> *
 									</div>
 									<div class="control-group">
 										<label class="control-label">Choose an image :</label>
-										<div id ="file" class="controls">
+										<div class="controls">
 											<input type="file" name="fileUpload" id="fileUpload">
 										</div>
 									</div>
 									<div class="control-group">
 										<label class="control-label">Description</label>
 										<div class="controls">
-											<textarea id="description" class="span11" placeholder="Description"
+											<textarea class="span11" placeholder="Description"
 												name="description"></textarea>
 										</div>
 										<div class="control-group">
 											<label class="control-label">Price :</label>
 											<div class="controls">
-												<input id="price" type="text" class="span11" placeholder="price" name="price" /> *
+												<input type="text" class="span11" placeholder="price" name="price" /> *
 											</div>
 
 										</div>
 
 										<div class="form-actions">
-											<input id = "btnAddProduct" type="button" value="Add" class="btn btn-success">
+											<button type="submit" name="add" class="btn btn-success">Add</button>
 										</div>
 									</div>
 
@@ -195,7 +190,6 @@ if ($_SESSION['type'] == 1) {
 	<script src="public/js/jquery.dataTables.min.js"></script>
 	<script src="public/js/matrix.js"></script>
 	<script src="public/js/matrix.tables.js"></script>
-	<script src="public/js/admin.js"></script>
 </body>
 
 </html>
